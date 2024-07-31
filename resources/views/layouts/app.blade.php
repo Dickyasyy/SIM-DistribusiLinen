@@ -15,12 +15,55 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
-</head>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Menghilangkan scroll horizontal */
+            height: 100%;
+            background: url('{{ url("/images/RumahSakit.jpeg") }}') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
+        }
+
+        #app {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang konten dengan transparansi */
+        }
+
+        main {
+            flex: 1;
+            padding: 20px;
+        }
+
+        footer {
+            flex-shrink: 0;
+        }
+
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-title {
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: bold;
+            margin-left: auto;
+        }
+    </style>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
-                <img src="{{url('/images/rspetro.jpeg')}}" class="img-fluid" width="50" height="50" alt="Image"/>
+                <div>
+                    <img src="{{url('/images/rspetro.jpeg')}}" class="img-fluid" width="50" height="50" alt="Image"/>
+                </div>
+                <div class="navbar-title">
+                    Sistem Informasi Manajemen Linen
+                </div>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

@@ -19,42 +19,30 @@
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
     <style>
-        .full-width-image {
-            position: relative;
-            width: 100%;
-            height: auto;
-            opacity: 0.5; /* Transparansi */
-        }
-
         body, html {
             margin: 0;
             padding: 0;
             overflow-x: hidden; /* Menghilangkan scroll horizontal */
+            height: 100%;
+            background: url('{{ url("/images/RumahSakit.jpeg") }}') no-repeat center center fixed;
+            background-size: cover;
+            position: relative;
         }
 
         #app {
             display: flex;
             flex-direction: column;
             min-height: 100vh;
+            background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang konten dengan transparansi */
         }
 
         main {
             flex: 1;
+            padding: 20px;
         }
 
         footer {
             flex-shrink: 0;
-        }
-
-        .full-width-image-container {
-            width: 100%;
-            overflow: hidden; /* Menghilangkan scroll */
-        }
-
-        .full-width-image img {
-            width: 100%;
-            max-height: 100vh; /* Membatasi tinggi gambar ke tinggi viewport */
-            object-fit: cover; /* Membuat gambar menyesuaikan dengan ukuran kontainer */
         }
 
         .navbar-brand {
@@ -126,13 +114,6 @@
         <main class="py-4">
             @yield('content')
         </main>
-        <footer>
-            <div class="full-width-image-container">
-                <div class="full-width-image">
-                    <img src="{{ url('/images/RumahSakit.jpeg') }}" class="img-fluid" alt="Full Width Image">
-                </div>
-            </div>
-        </footer>
     </div>
 </body>
 </html>

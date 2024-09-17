@@ -30,8 +30,8 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header d-flex justify-content-end">
-                    <a class="btn btn-outline-success" href="#">Download Excel</a>
-                </div>
+                    <a class="btn btn-outline-success" href="{{ route('export.linen.bersih') }}">Download Excel (Linen Bersih)</a>
+                </div>                
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table table-striped">

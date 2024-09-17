@@ -8,6 +8,9 @@ use App\Models\LinenKotor;
 use App\Models\LinenBersih;
 use App\Models\UnitLayanan;
 use Illuminate\Http\Request;
+use App\Exports\LinenKotorExport;
+use App\Exports\LinenBersihExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class DashboardController extends Controller
 {
@@ -54,6 +57,16 @@ class DashboardController extends Controller
     public function DetailApprove(){
         $detailApprove = LinenBersih::all();
         return view('dashboard.linen_keluar_detail', compact('detailApprove'));
+    }
+
+    public function exportLinenKotor()
+    {
+        return Excel::download(new LinenKotorExport, 'linen_kotor.xlsx');
+    }
+
+    public function exportLinenBersih()
+    {
+        return Excel::download(new LinenBersihExport, 'linen_bersih.xlsx');
     }
 
     public function create()

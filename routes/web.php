@@ -36,13 +36,14 @@ Route::middleware(['auth'])->group(function(){
     Route::get('/dashboard/input-masuk-detail', [DashboardController::class,'DetailOrder'])->name('detail.linen.masuk');
     Route::get('/dashboard/input-keluar-detail', [DashboardController::class,'DetailApprove'])->name('detail.linen.keluar');
     Route::get('/dashboard/detail', [DashboardController::class,'detail_unit'])->name('detail.unit');
+    Route::get('/export-linen-kotor', [DashboardController::class, 'exportLinenKotor'])->name('export.linen.kotor');
+    Route::get('/export-linen-bersih', [DashboardController::class, 'exportLinenBersih'])->name('export.linen.bersih');
 
     // Ruangan Input Linen Kotor
     Route::get('/input-linen-masuk/create', [InputLinenKotorController::class, 'create'])->name('input.linenMasuk.create');
     Route::post('/input-linen-masuk', [InputLinenKotorController::class, 'store'])->name('input.linenMasuk.store');
     Route::get('linen-masuk/{no_pinta}/pdf', [InputLinenKotorController::class, 'generatePDF'])->name('input.inputMasuk.generatePDF');
-
-
+    
     // // Ruangan Approve Linen
     Route::get('/approve-linen', [ApproveLinenController::class, 'index'])->name('approve.index');
     Route::get('/approve/edit/{no_pinta}', [ApproveLinenController::class, 'edit'])->name('approve.edit');
